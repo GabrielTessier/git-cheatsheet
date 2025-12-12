@@ -329,21 +329,21 @@ gitGraph
 =git pull=
 
 * Filter-branch
-** Remove file
+** Removes a file from all commits
 #+BEGIN_SRC bash
   git filter-branch --force --index-filter \
       "git rm --cached --ignore-unmatch <FILE_NAME>" \
       --prune-empty --tag-name-filter cat -- --all
 #+END_SRC
 
-** Remove folder
+** Removes a folder from all commits
 #+BEGIN_SRC bash
   git filter-branch --force --index-filter \
       "git rm --cached --ignore-unmatch -r <FOLDER_NAME>" \
       --prune-empty --tag-name-filter cat -- --all
 #+END_SRC
 
-** Sign all commit
+** Sign all commits
 #+BEGIN_SRC bash
   git filter-branch -f --commit-filter 'git commit-tree -S "$@";' -- --all
 #+END_SRC
